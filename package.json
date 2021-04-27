@@ -1,7 +1,7 @@
 {
-  "name": "javascript-action",
-  "version": "1.0.0",
-  "description": "JavaScript Action Template",
+  "name": "actions-json-patch",
+  "version": "0.1.0",
+  "description": "Patches JSON and yaml files using JSON Patch RFC6902",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
@@ -11,21 +11,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/javascript-action.git"
+    "url": "git+https://github.com/stephenrob/actions-json-patch.git"
   },
   "keywords": [
     "GitHub",
     "Actions",
     "JavaScript"
   ],
-  "author": "",
+  "author": "Stephen Robinson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/actions/javascript-action/issues"
+    "url": "https://github.com/stephenrob/actions-json-patch/issues"
   },
-  "homepage": "https://github.com/actions/javascript-action#readme",
+  "homepage": "https://github.com/stephenrob/actions-json-patch#readme",
   "dependencies": {
-    "@actions/core": "^1.2.5"
+    "@actions/core": "^1.2.5",
+    "fast-json-patch": "^3.0.0-1",
+    "js-yaml": "^4.1.0"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.27.0",

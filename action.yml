@@ -1,13 +1,23 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: 'JSON Patch'
+description: 'Patch the specified config file with the given operation'
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
+  file:  # id of input
+    description: 'file to perform patch operation on'
     required: true
-    default: '1000'
-outputs:
-  time: # output will be available to future steps
-    description: 'The message to output'
+  output:
+    description: 'output patched file in this format'
+    required: true
+    default: 'yaml'
+  op:
+    description: 'operation to perform'
+    required: true
+    default: "replace"
+  path:
+    description: 'JSON Path to the object to perform the operation on'
+    required: true
+  value:
+    description: 'value to use in operation at the given path'
+    required: true
 runs:
   using: 'node12'
   main: 'dist/index.js'

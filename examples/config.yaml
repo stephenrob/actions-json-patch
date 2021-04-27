@@ -1,0 +1,38 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: auth-service
+
+resources:
+  - deployment.yaml
+  - service.yaml
+  - serviceaccount.yaml
+  - upstream.yaml
+  - virtualservice.yaml
+
+images:
+- name: service/authentication
+  newName: service/authentication
+  newTag: 0.1.4
+
+configurations:
+- configurations/solo_variables.yaml
+- configurations/solo_namespace.yaml
+- configurations/sealedsecrets_namespace.yaml
+- configurations/sealedsecrets_name.yaml
+- configurations/service_name.yaml
+- configurations/solo_name.yaml
+
+components:
+- components/redis
+
+commonLabels:
+  app.kubernetes.io/part-of: auth-service
+
+configMapGenerator:
+- name: authentication-config
+  options:
+    disableNameSuffixHash: true
+  literals:
+  - BASE_URL=https://authentication
+  - REDIS_URL=redis://redis-master-0.redis-headless:6379
