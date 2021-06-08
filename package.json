@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/stephenrob/actions-json-patch#readme",
   "dependencies": {
-    "@actions/core": "^1.2.5",
+    "@actions/core": "^1.4.0",
     "fast-json-patch": "^3.0.0-1",
     "js-yaml": "^4.1.0"
   },
